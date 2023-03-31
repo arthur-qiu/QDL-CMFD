@@ -4,7 +4,11 @@ import numpy as np
 import os
 import torch
 from basicsr.archs.rrdbnet_arch import RRDBNet
-from torch.hub import download_url_to_file, get_dir
+from torch.hub import download_url_to_file
+try:
+    from torch.hub import get_dir
+except BaseException:
+    from torch.hub import _get_torch_home as get_dir
 from torch.nn import functional as F
 from urllib.parse import urlparse
 
